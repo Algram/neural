@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "sigmoid": "0.0.1",
+    "sigmoid-prime": "0.0.1",
+    "htan-prime": "0.0.1",
+    "htan": "0.0.2"
+  }
+}

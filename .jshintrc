@@ -1,0 +1,10 @@
+{
+  "esnext": true,
+  "node": true,
+  "jquery": true,
+  "asi": true,
+  "globals": {
+      "Notification": false,
+      "document": false
+  }
+}
