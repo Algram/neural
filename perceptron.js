@@ -2,6 +2,7 @@
 
 class Perceptron {
 	constructor(numberOfInputs) {
+    this.c = 0.01;
 		this.weights = [];
 
 		for(let i = 0; i < numberOfInputs; i++) {
@@ -22,6 +23,15 @@ class Perceptron {
   activate(sum) {
     if (sum > 0) return 1;
     else return -1;
+  }
+
+  train(inputs, desired) {
+    let guess = this.feedForward(inputs);
+    let error = desired - guess;
+
+    for (let i = 0; i < this.weights.length; i++) {
+      this.weights[i] += this.c * error * inputs[i];
+    }
   }
 
   randomIntFromInterval(min,max) {
