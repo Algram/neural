@@ -4,7 +4,12 @@
   "jquery": true,
   "asi": true,
   "globals": {
-      "Notification": false,
-      "document": false
+      "multiply": false,
+      "transform": false,
+      "subtract": false,
+      "dot": false,
+      "scalar": false,
+      "transpose": false,
+      "add": false
   }
 }
