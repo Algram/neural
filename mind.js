@@ -3,6 +3,7 @@ const htan = require('htan');
 const htanPrime = require('htan-prime');
 const sigmoid = require('sigmoid');
 const sigmoidPrime = require('sigmoid-prime');
+const sample = require('samples');
 require('node-matrix');
 
 function Mind(opts) {
@@ -55,4 +56,28 @@ Mind.prototype.back = function(examples, results) {
   weights.hiddenOutput = add(weights.hiddenOutput, hiddenOutputChanges);
 
   return errorOutputLayer;
+};
+
+Mind.prototype.learn = function(examples) {
+  examples = normalize(examples);
+
+  this.weights = {
+    inputHidden: Matrix({
+      columns: this.hiddenUnits,
+      rows: examples.input[0].length,
+      values: sample
+    }),
+    hiddenOutput: Matrix({
+      columns: examples.output[0].length,
+      rows: this.hiddenUnits,
+      values: sample
+    })
+  };
+
+  for (var i = 0; i < this.iterations; i++) {
+    var results = this.forward(examples);
+    var errors = this.back(examples, results);
+  }
+
+  return this;
 };

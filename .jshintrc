@@ -10,6 +10,7 @@
       "dot": false,
       "scalar": false,
       "transpose": false,
-      "add": false
+      "add": false,
+      "normalize": false
   }
 }
